@@ -1,4 +1,5 @@
 {
+  "app.containers.LoginPage.header": "",
   "slldt.components.Footer.author.message": "Mit Liebe gemacht von {author}.",
   "slldt.components.Footer.license.message":
     "Dieses Projekt wird unter der MIT-Lizenz veröffentlicht.",

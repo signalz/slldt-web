@@ -1,4 +1,5 @@
 {
+  "app.containers.LoginPage.header": "This is LoginPage container !",
   "slldt.components.Footer.author.message": "Made with love by {author}.",
   "slldt.components.Footer.license.message":
     "This project is licensed under the MIT license.",
