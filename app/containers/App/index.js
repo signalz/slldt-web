@@ -13,26 +13,31 @@ import { Switch, Route } from 'react-router-dom';
 // import { createStructuredSelector } from 'reselect';
 // import { connect } from 'react-redux';
 
-import HomePage from 'containers/HomePage/Loadable';
-import FeaturePage from 'containers/FeaturePage/Loadable';
+// import HomePage from 'containers/HomePage/Loadable';
+// import FeaturePage from 'containers/FeaturePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import LoginPage from 'containers/LoginPage/Loadable';
+import AdminPage from 'containers/AdminPage/Loadable';
+import TeacherPage from 'containers/TeacherPage/Loadable';
+import ParentPage from 'containers/ParentPage/Loadable';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 
 import {
   userIsAuthenticatedRedir,
-  // userIsNotAuthenticatedRedir,
-  // userIsAdminRedir,
+  userIsNotAuthenticatedRedir,
+  userRedir,
   // userIsAuthenticated,
   // userIsNotAuthenticated,
 } from 'auth';
 
 // import { makeSelectCurrentUser } from './selectors';
 
-// const Login = userIsNotAuthenticatedRedir(LoginPage);
-const Protected = userIsAuthenticatedRedir(HomePage);
-// const Admin = userIsAuthenticatedRedir(userIsAdminRedir(FeaturePage));
+const Login = userIsNotAuthenticatedRedir(LoginPage);
+// const Login = userIsAuthenticatedRedir(LoginPage);
+const Admin = userIsAuthenticatedRedir(userRedir('Admin')(AdminPage));
+const Teacher = userIsAuthenticatedRedir(userRedir('Teacher')(TeacherPage));
+const Parent = userIsAuthenticatedRedir(userRedir('Parent')(ParentPage));
 
 const AppWrapper = styled.div`
   max-width: calc(768px + 16px * 2);
@@ -53,9 +58,11 @@ const App = () => (
     </Helmet>
     <Header />
     <Switch>
-      <Route exact path="/" component={Protected} />
-      <Route path="/features" component={FeaturePage} />
-      <Route path="/login" component={LoginPage} />
+      <Route exact path="/" component={Login} />
+      <Route path="/login" component={Login} />
+      <Route path="/admin" component={Admin} />
+      <Route path="/teacher" component={Teacher} />
+      <Route path="/parent" component={Parent} />
       <Route path="" component={NotFoundPage} />
     </Switch>
     <Footer />

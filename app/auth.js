@@ -1,4 +1,4 @@
-import locationHelperBuilder from 'redux-auth-wrapper/history4/locationHelper';
+// import locationHelperBuilder from 'redux-auth-wrapper/history4/locationHelper';
 import { connectedRouterRedirect } from 'redux-auth-wrapper/history4/redirect';
 import connectedAuthWrapper from 'redux-auth-wrapper/connectedAuthWrapper';
 
@@ -6,7 +6,7 @@ import LoadingIndicator from './components/LoadingIndicator';
 
 const getUserFromState = state => state.toJS().global.user;
 
-const locationHelper = locationHelperBuilder({});
+// const locationHelper = locationHelperBuilder({});
 
 const userIsAuthenticatedDefaults = {
   authenticatedSelector: state =>
@@ -26,15 +26,16 @@ export const userIsAuthenticatedRedir = connectedRouterRedirect({
   redirectPath: '/login',
 });
 
-export const userIsAdminRedir = connectedRouterRedirect({
-  redirectPath: '/',
-  allowRedirectBack: false,
-  authenticatedSelector: state =>
-    Object.keys(getUserFromState(state)).length > 0 &&
-    getUserFromState(state).isAdmin,
-  predicate: user => user.isAdmin,
-  wrapperDisplayName: 'UserIsAdmin',
-});
+export const userRedir = role =>
+  connectedRouterRedirect({
+    redirectPath: '/login',
+    allowRedirectBack: false,
+    authenticatedSelector: state =>
+      Object.keys(getUserFromState(state)).length > 0 &&
+      getUserFromState(state).role === role,
+    // predicate: user => user[`is${role}`],
+    wrapperDisplayName: `UserIs${role}`,
+  });
 
 // export const userIsTeacherRedir = connectedRouterRedirect({
 //   redirectPath: '/',
@@ -55,8 +56,7 @@ export const userIsAdminRedir = connectedRouterRedirect({
 const userIsNotAuthenticatedDefaults = {
   // Want to redirect the user when they are done loading and authenticated
   authenticatedSelector: state =>
-    Object.keys(getUserFromState(state)).length === 0 &&
-    getUserFromState(state).isLoading === false,
+    Object.keys(getUserFromState(state)).length === 0,
   wrapperDisplayName: 'UserIsNotAuthenticated',
 };
 
@@ -66,7 +66,8 @@ export const userIsNotAuthenticated = connectedAuthWrapper(
 
 export const userIsNotAuthenticatedRedir = connectedRouterRedirect({
   ...userIsNotAuthenticatedDefaults,
-  redirectPath: (state, ownProps) =>
-    locationHelper.getRedirectQueryParam(ownProps) || '/',
+  // redirectPath: (state, ownProps) =>
+  //   locationHelper.getRedirectQueryParam(ownProps) || '/',
+  redirectPath: state => `/${getUserFromState(state).role}`,
   allowRedirectBack: false,
 });
