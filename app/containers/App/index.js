@@ -10,11 +10,6 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
-// import { createStructuredSelector } from 'reselect';
-// import { connect } from 'react-redux';
-
-// import HomePage from 'containers/HomePage/Loadable';
-// import FeaturePage from 'containers/FeaturePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import LoginPage from 'containers/LoginPage/Loadable';
 import AdminPage from 'containers/AdminPage/Loadable';
@@ -27,14 +22,9 @@ import {
   userIsAuthenticatedRedir,
   userIsNotAuthenticatedRedir,
   userRedir,
-  // userIsAuthenticated,
-  // userIsNotAuthenticated,
 } from 'auth';
 
-// import { makeSelectCurrentUser } from './selectors';
-
 const Login = userIsNotAuthenticatedRedir(LoginPage);
-// const Login = userIsAuthenticatedRedir(LoginPage);
 const Admin = userIsAuthenticatedRedir(userRedir('Admin')(AdminPage));
 const Teacher = userIsAuthenticatedRedir(userRedir('Teacher')(TeacherPage));
 const Parent = userIsAuthenticatedRedir(userRedir('Parent')(ParentPage));
@@ -69,9 +59,4 @@ const App = () => (
   </AppWrapper>
 );
 
-// const mapStateToProps = createStructuredSelector({
-//   user: makeSelectCurrentUser(),
-// });
-
-// export default connect(mapStateToProps)(App);
 export default App;

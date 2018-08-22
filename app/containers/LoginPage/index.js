@@ -12,6 +12,8 @@ import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
+// import { Input } from 'antd';
+
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 import makeSelectLoginPage from './selectors';
@@ -24,12 +26,12 @@ export class LoginPage extends React.Component {
   render() {
     return (
       <div>
-        11111111111111111111111111111111
         <Helmet>
           <title>LoginPage</title>
           <meta name="description" content="Description of LoginPage" />
         </Helmet>
         <FormattedMessage {...messages.header} />
+        {/* <Input placeholder="Basic usage" /> */}
       </div>
     );
   }
