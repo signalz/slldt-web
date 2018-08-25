@@ -12,7 +12,9 @@ import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
-// import { Input } from 'antd';
+import { Input, Button } from 'antd';
+
+import { loadUser } from 'containers/App/actions';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
@@ -23,6 +25,30 @@ import messages from './messages';
 
 /* eslint-disable react/prefer-stateless-function */
 export class LoginPage extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      userName: '',
+      password: '',
+    };
+  }
+
+  onInputUserNameChange = e =>
+    this.setState({
+      userName: e.target.value,
+    });
+
+  onInputPasswordChange = e =>
+    this.setState({
+      password: e.target.value,
+    });
+
+  onLoginButtonClick = () => {
+    console.log(this.state.userName, this.state.password);
+    console.log(this.props.login);
+    this.props.login(this.state.userName, this.state.password);
+  };
+
   render() {
     return (
       <div>
@@ -31,13 +57,35 @@ export class LoginPage extends React.Component {
           <meta name="description" content="Description of LoginPage" />
         </Helmet>
         <FormattedMessage {...messages.header} />
-        {/* <Input placeholder="Basic usage" /> */}
+        <div>
+          User name:
+          <Input
+            value={this.state.userName}
+            onChange={this.onInputUserNameChange}
+            placeholder="user name"
+          />
+        </div>
+        <div>
+          Password:
+          <Input
+            type="password"
+            placeholder="password"
+            value={this.state.password}
+            onChange={this.onInputPasswordChange}
+          />
+        </div>
+        <div>
+          <Button type="primary" onClick={this.onLoginButtonClick}>
+            Login
+          </Button>
+        </div>
       </div>
     );
   }
 }
 
 LoginPage.propTypes = {
+  login: PropTypes.func.isRequired,
   dispatch: PropTypes.func.isRequired,
 };
 
@@ -47,6 +95,7 @@ const mapStateToProps = createStructuredSelector({
 
 function mapDispatchToProps(dispatch) {
   return {
+    login: (userName, password) => dispatch(loadUser(userName, password)),
     dispatch,
   };
 }
