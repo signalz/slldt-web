@@ -14,18 +14,6 @@ import 'antd/dist/antd.css';
 import { Switch, Route } from 'react-router-dom';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import HomePage from 'containers/HomePage';
-// import LoginPage from 'containers/LoginPage/Loadable';
-// import AdminPage from 'containers/AdminPage/Loadable';
-// import TeacherPage from 'containers/TeacherPage/Loadable';
-// import ParentPage from 'containers/ParentPage/Loadable';
-// import Header from 'components/Header';
-// import Footer from 'components/Footer';
-
-// import {
-//   userIsAuthenticatedRedir,
-//   userIsNotAuthenticatedRedir,
-//   userRedir,
-// } from 'auth';
 
 const AppWrapper = styled.div`
   max-width: calc(768px + 16px * 2);
@@ -44,10 +32,6 @@ const App = () => (
     {/* <Header /> */}
     <Switch>
       <Route exact path="/" component={HomePage} />
-      {/* <Route path="/login" component={Login} />
-      <Route path="/admin" component={Admin} />
-      <Route path="/teacher" component={Teacher} />
-      <Route path="/parent" component={Parent} /> */}
       <Route path="" component={NotFoundPage} />
     </Switch>
     {/* <Footer /> */}
