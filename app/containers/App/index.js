@@ -15,22 +15,26 @@ import { Switch, Route } from 'react-router-dom';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import HomePage from 'containers/HomePage';
 import AboutUs from 'containers/AboutUs';
+import Header from 'components/Header';
+
+// import Background from './bg.jpg';
 
 const AppWrapper = styled.div`
-  max-width: calc(768px + 16px * 2);
+  /* max-width: calc(768px + 16px * 2); */
   margin: 0 auto;
   display: flex;
   min-height: 100%;
-  padding: 0 16px;
+  /* padding: 0 16px; */
   flex-direction: column;
 `;
 
-const App = () => (
+const App = props => (
   <AppWrapper>
+    {/* <Img src={Background} alt="test" /> */}
     <Helmet titleTemplate="IQTrivia Homepage" defaultTitle="IQTrivia Homepage">
       <meta name="description" content="IQTrivia Homepage" />
     </Helmet>
-    {/* <Header /> */}
+    <Header {...props} />
     <Switch>
       <Route exact path="/" component={HomePage} />
       <Route exact path="/about" component={AboutUs} />

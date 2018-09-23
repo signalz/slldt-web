@@ -8,10 +8,10 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   home: {
     id: 'iqtrivia.components.Header.home',
-    defaultMessage: 'Home',
+    defaultMessage: 'Home page',
   },
-  features: {
-    id: 'iqtrivia.components.Header.features',
-    defaultMessage: 'Features',
+  about: {
+    id: 'iqtrivia.components.Header.about',
+    defaultMessage: 'About us',
   },
 });
