@@ -14,6 +14,7 @@ import 'antd/dist/antd.css';
 import { Switch, Route } from 'react-router-dom';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import HomePage from 'containers/HomePage';
+import AboutUs from 'containers/AboutUs';
 
 const AppWrapper = styled.div`
   max-width: calc(768px + 16px * 2);
@@ -32,6 +33,7 @@ const App = () => (
     {/* <Header /> */}
     <Switch>
       <Route exact path="/" component={HomePage} />
+      <Route exact path="/about" component={AboutUs} />
       <Route path="" component={NotFoundPage} />
     </Switch>
     {/* <Footer /> */}
