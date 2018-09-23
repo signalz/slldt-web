@@ -7,11 +7,11 @@ import { defineMessages } from 'react-intl';
 
 export default defineMessages({
   licenseMessage: {
-    id: 'slldt.components.Footer.license.message',
+    id: 'iqtrivia.components.Footer.license.message',
     defaultMessage: 'This project is licensed under the MIT license.',
   },
   authorMessage: {
-    id: 'slldt.components.Footer.author.message',
+    id: 'iqtrivia.components.Footer.author.message',
     defaultMessage: `
       Made with love by {author}.
     `,

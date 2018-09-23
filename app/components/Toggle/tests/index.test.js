@@ -10,11 +10,11 @@ describe('<Toggle />', () => {
     const defaultDeMessage = 'someOtherContent';
     const messages = defineMessages({
       en: {
-        id: 'slldt.containers.LocaleToggle.en',
+        id: 'iqtrivia.containers.LocaleToggle.en',
         defaultMessage: defaultEnMessage,
       },
       de: {
-        id: 'slldt.containers.LocaleToggle.en',
+        id: 'iqtrivia.containers.LocaleToggle.en',
         defaultMessage: defaultDeMessage,
       },
     });

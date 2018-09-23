@@ -1,7 +1,7 @@
 {
-  "name": "slldt-web",
+  "name": "iqtrivia-web",
   "version": "0.0.1",
-  "description": "slldt web version",
+  "description": "iqtrivia web version",
   "repository": {
     "type": "git"
   },

@@ -1,6 +1,6 @@
-# slldt-web
+# iqtrivia-web
 
-slldt web version
+iqtrivia web version
 
 clone from https://github.com/react-boilerplate/react-boilerplate
 

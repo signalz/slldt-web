@@ -16,7 +16,7 @@ describe('<NotFound />', () => {
       renderedComponent.contains(
         <H1>
           <FormattedMessage
-            id="slldt.containers.NotFoundPage.header"
+            id="iqtrivia.containers.NotFoundPage.header"
             defaultMessage="Page not found."
           />
         </H1>,

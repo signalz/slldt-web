@@ -9,10 +9,10 @@
  * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT';
  */
 
-// export const LOAD_REPOS = 'slldt/App/LOAD_REPOS';
-// export const LOAD_REPOS_SUCCESS = 'slldt/App/LOAD_REPOS_SUCCESS';
-// export const LOAD_REPOS_ERROR = 'slldt/App/LOAD_REPOS_ERROR';
+// export const LOAD_REPOS = 'iqtrivia/App/LOAD_REPOS';
+// export const LOAD_REPOS_SUCCESS = 'iqtrivia/App/LOAD_REPOS_SUCCESS';
+// export const LOAD_REPOS_ERROR = 'iqtrivia/App/LOAD_REPOS_ERROR';
 
-export const USER_LOGIN = 'slldt/App/USER_LOGIN';
-export const USER_LOGIN_SUCCESS = 'slldt/App/USER_LOGIN_SUCCESS';
-export const USER_LOGIN_ERROR = 'slldt/App/USER_LOGIN_ERROR';
+export const USER_LOGIN = 'iqtrivia/App/USER_LOGIN';
+export const USER_LOGIN_SUCCESS = 'iqtrivia/App/USER_LOGIN_SUCCESS';
+export const USER_LOGIN_ERROR = 'iqtrivia/App/USER_LOGIN_ERROR';
