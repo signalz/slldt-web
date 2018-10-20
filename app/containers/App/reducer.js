@@ -19,6 +19,7 @@ const initialState = fromJS({
   loading: false,
   error: false,
   user: {},
+  theme: 'light',
 });
 
 function appReducer(state = initialState, action) {
