@@ -6,6 +6,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
@@ -22,6 +23,10 @@ import makeSelectLoginPage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
+
+const LoginButton = styled(Button)`
+  background-color: ${props => props.theme.appButton};
+`;
 
 /* eslint-disable react/prefer-stateless-function */
 export class LoginPage extends React.Component {
@@ -50,6 +55,7 @@ export class LoginPage extends React.Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <div>
         <Helmet>
@@ -75,9 +81,9 @@ export class LoginPage extends React.Component {
           />
         </div>
         <div>
-          <Button type="primary" onClick={this.onLoginButtonClick}>
+          <LoginButton type="primary" onClick={this.onLoginButtonClick}>
             Login
-          </Button>
+          </LoginButton>
         </div>
       </div>
     );

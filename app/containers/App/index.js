@@ -7,8 +7,12 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { compose } from 'redux';
 import 'antd/dist/antd.css';
 
 import { Switch, Route } from 'react-router-dom';
@@ -19,12 +23,16 @@ import TeacherPage from 'containers/TeacherPage/Loadable';
 import ParentPage from 'containers/ParentPage/Loadable';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
+import lightTheme from 'themes/light.json';
+import darkTheme from 'themes/dark.json';
 
 import {
   userIsAuthenticatedRedir,
   userIsNotAuthenticatedRedir,
   userRedir,
 } from 'auth';
+
+import { makeSelectTheme } from './selectors';
 
 const Login = userIsNotAuthenticatedRedir(LoginPage);
 const Admin = userIsAuthenticatedRedir(userRedir('Admin')(AdminPage));
@@ -40,25 +48,49 @@ const AppWrapper = styled.div`
   flex-direction: column;
 `;
 
-const App = () => (
-  <AppWrapper>
-    <Helmet
-      titleTemplate="%s - React.js Boilerplate"
-      defaultTitle="React.js Boilerplate"
-    >
-      <meta name="description" content="A React.js Boilerplate application" />
-    </Helmet>
-    <Header />
-    <Switch>
-      <Route exact path="/" component={Login} />
-      <Route path="/login" component={Login} />
-      <Route path="/admin" component={Admin} />
-      <Route path="/teacher" component={Teacher} />
-      <Route path="/parent" component={Parent} />
-      <Route path="" component={NotFoundPage} />
-    </Switch>
-    <Footer />
-  </AppWrapper>
+const getTheme = theme => {
+  switch (theme) {
+    case 'light':
+      return lightTheme;
+    case 'dark':
+      return darkTheme;
+    default:
+      return lightTheme;
+  }
+};
+
+const App = props => (
+  <ThemeProvider theme={getTheme(props.theme)}>
+    <AppWrapper>
+      <Helmet
+        titleTemplate="%s - React.js Boilerplate"
+        defaultTitle="React.js Boilerplate"
+      >
+        <meta name="description" content="A React.js Boilerplate application" />
+      </Helmet>
+      <Header />
+      <Switch>
+        <Route exact path="/" component={Login} />
+        <Route path="/login" component={Login} />
+        <Route path="/admin" component={Admin} />
+        <Route path="/teacher" component={Teacher} />
+        <Route path="/parent" component={Parent} />
+        <Route path="" component={NotFoundPage} />
+      </Switch>
+      <Footer />
+    </AppWrapper>
+  </ThemeProvider>
 );
 
-export default App;
+App.propTypes = {
+  theme: PropTypes.string.isRequired,
+};
+
+const mapStateToProps = createStructuredSelector({
+  theme: makeSelectTheme(),
+});
+
+const withConnect = connect(mapStateToProps);
+
+// export default App;
+export default compose(withConnect)(App);
