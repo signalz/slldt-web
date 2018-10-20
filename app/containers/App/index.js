@@ -21,8 +21,6 @@ import LoginPage from 'containers/LoginPage/Loadable';
 import AdminPage from 'containers/AdminPage/Loadable';
 import TeacherPage from 'containers/TeacherPage/Loadable';
 import ParentPage from 'containers/ParentPage/Loadable';
-import Header from 'components/Header';
-import Footer from 'components/Footer';
 import lightTheme from 'themes/light.json';
 import darkTheme from 'themes/dark.json';
 
@@ -63,12 +61,11 @@ const App = props => (
   <ThemeProvider theme={getTheme(props.theme)}>
     <AppWrapper>
       <Helmet
-        titleTemplate="%s - React.js Boilerplate"
-        defaultTitle="React.js Boilerplate"
+        titleTemplate="Sổ Liên lạc Điện Tử"
+        defaultTitle="Sổ Liên lạc Điện Tử"
       >
-        <meta name="description" content="A React.js Boilerplate application" />
+        <meta name="description" content="Sổ Liên lạc Điện Tử" />
       </Helmet>
-      <Header />
       <Switch>
         <Route exact path="/" component={Login} />
         <Route path="/login" component={Login} />
@@ -77,7 +74,6 @@ const App = props => (
         <Route path="/parent" component={Parent} />
         <Route path="" component={NotFoundPage} />
       </Switch>
-      <Footer />
     </AppWrapper>
   </ThemeProvider>
 );
