@@ -22,6 +22,7 @@ import LoginPage from 'containers/LoginPage/Loadable';
 import AdminPage from 'containers/AdminPage/Loadable';
 import TeacherPage from 'containers/TeacherPage/Loadable';
 import ParentPage from 'containers/ParentPage/Loadable';
+import Footer from 'components/Footer';
 import lightTheme from 'themes/light.json';
 import darkTheme from 'themes/dark.json';
 
@@ -41,11 +42,9 @@ const Teacher = userIsAuthenticatedRedir(userRedir('Teacher')(TeacherPage));
 const Parent = userIsAuthenticatedRedir(userRedir('Parent')(ParentPage));
 
 const AppWrapper = styled.div`
-  /* max-width: calc(768px + 16px * 2); */
   margin: 0 auto;
   display: flex;
   min-height: 100%;
-  padding: 0 16px;
   flex-direction: column;
   background-image: url(${bg});
   position: absolute;
@@ -83,6 +82,7 @@ const App = props => (
         <Route path="/parent" component={Parent} />
         <Route path="" component={NotFoundPage} />
       </Switch>
+      <Footer />
     </AppWrapper>
   </ThemeProvider>
 );
