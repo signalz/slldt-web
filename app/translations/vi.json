@@ -28,5 +28,7 @@
   "slldt.containers.HomePage.tryme.message": "",
   "slldt.containers.LocaleToggle.de": "",
   "slldt.containers.LocaleToggle.en": "",
-  "slldt.containers.NotFoundPage.header": ""
+  "slldt.containers.NotFoundPage.header": "",
+
+  "slldt.containers.App.header": "Sổ Liên Lạc Điện Tử"
 }
