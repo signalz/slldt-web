@@ -20,7 +20,7 @@ addLocaleData(enLocaleData);
 addLocaleData(deLocaleData);
 addLocaleData(viLocaleData);
 
-const DEFAULT_LOCALE = 'en';
+const DEFAULT_LOCALE = 'vi';
 
 // prettier-ignore
 const appLocales = [

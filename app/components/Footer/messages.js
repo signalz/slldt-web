@@ -10,10 +10,8 @@ export default defineMessages({
     id: 'slldt.components.Footer.license.message',
     defaultMessage: 'This project is licensed under the MIT license.',
   },
-  authorMessage: {
-    id: 'slldt.components.Footer.author.message',
-    defaultMessage: `
-      Made with love by {author}.
-    `,
+  rightMessage: {
+    id: 'slldt.components.Footer.right.message',
+    defaultMessage: 'Copyright © 2018. All rights reserved',
   },
 });
